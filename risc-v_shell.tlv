@@ -44,8 +44,11 @@
    $reset = *reset;
    
    
-   // YOUR CODE HERE
-   // ...
+   //program counter PC logic
+   //increments 4 bytes (32 bit instructions) address every cycle
+   $pc[31:0] = >>1$next_pc[31:0];
+   $next_pc[31:0] = $reset ? 32'b0 : $pc + 4;
+  
    
    
    // Assert these to end simulation (before Makerchip cycle limit).
